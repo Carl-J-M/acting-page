@@ -1,15 +1,16 @@
 <template>
   <div class="pageContainer">
+    
       <div>
           <div id="demo">
-            <button v-on:click="show = !show" class="demo">
+            <!-- <button v-on:click="show = !show" class="demo">
               <div v-if="show" class="findoutmore">TESTIMONIALS</div>
               <div v-else class="sticky home">HOME</div>
-            </button>
+            </button> -->
             <transition name="fade">
               <div key=1 v-if="show" class="headingContainer">
                             <h1 class="name">{{details.name}}</h1>
-                            <img class="headshot" src="../assets/headshot.jpg" width="190" height="auto"/>
+                            <!-- <img class="headshot" src="../assets/headshot.jpg" width="190" height="auto"/> -->
                             <div class="infoContainer">
                             <h2 class="title">{{details.title}}</h2>
                             <div class="phrase">{{details.phrase}}</div>
@@ -35,7 +36,7 @@ export default {
       details: {
         name: "SOPHIE MENSAH",
         title: "Actor & Acting Teacher, London",
-        phrase: "\You don’t need to go to drama school to be a professional actor but you do need to work hard on your craft every day."
+        phrase: "\"You don’t need to go to drama school to be a professional actor but you do need to work hard on your craft every day.\""
       },
       bio: "Sophie Mensah is a London based British actress and acting coach with a BA HONS in Acting from the East15 Acting School and and MA in 'Actor Training and Coaching' with a distinction from The Royal Central School of Speech and Drama. As well as private coaching with established and up and coming actors, Sophie has worked as an visiting acting teacher at The Royal Central School of Speech and Drama, St Mary's University, East15 Acting School and many more.",
       show: true,
@@ -76,10 +77,11 @@ export default {
     min-height: 100vh;
     width: 100vw;
     color: white;
-    background: rgba(39, 93, 241, 0.459); 
-
+    background: rgba(241, 211, 39, 0.459); 
+    animation: fadebg infinite 20s, ease-in-out 0s;
     font-family: 'Montserrat', sans-serif;
     margin-left: 0em;
+    z-index: 15;
 
   }
   .testimonialContainer {
@@ -117,7 +119,6 @@ export default {
     padding-bottom: 1em;
     letter-spacing: 1em;
     font-weight: 100;
-    color: black;
   }
   .title {
     font-size: 0.8em; 
@@ -125,16 +126,15 @@ export default {
      padding-bottom: 0.1em;
      text-align: left;
      font-weight: 100;
-     color: black;
   }
   .headshot {
-    -webkit-box-shadow: 4px 10px 14px 0px rgba(0,0,0,0.75);
+    /* -webkit-box-shadow: 4px 10px 14px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: 4px 10px 14px 0px rgba(0,0,0,0.75);
-    box-shadow: 4px 10px 14px 0px rgba(0,0,0,0.75);
+    box-shadow: 4px 10px 14px 0px rgba(0,0,0,0.75); */
      margin: 0 auto;
      
-     /* filter: grayscale(); */
-     border-radius: 1%;
+     filter: grayscale(); 
+     border-radius: 3%;
      /* filter: grayscale(); */
   }
   .phrase {
@@ -146,7 +146,6 @@ export default {
     margin: 0 auto;
     /* width: 50em; */
     max-width: 35vw;
-    color: black;
     /* background-color: rgba(255, 255, 255, 0.521); */
     padding: 0.4em;
     /* clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%); */
@@ -258,4 +257,27 @@ button:focus {outline:0;}
   flex-direction: column;
   padding: 1.1em;
 }
+
+  @keyframes  fadebg {
+      0% {
+          
+          background-color:rgb(204, 83, 2);
+          /* background-color: rgba(153, 0, 255, 0.822); */
+      }
+      15% {
+          
+          background-color:rgb(204, 140, 2);
+          /* background-color: rgba(153, 0, 255, 0.822); */
+      }
+      30% {
+          background-color:rgba(39, 83, 30, 0.288);
+      }
+      80% {
+          background-color: rgb(0, 0, 0);
+      }
+      100% {
+          /* background-color: rgba(209, 78, 2, 0.295); */
+          background-color:rgb(204, 83, 2);
+      }
+  }
 </style>

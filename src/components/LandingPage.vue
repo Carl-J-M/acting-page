@@ -12,14 +12,9 @@
                             <h1 class="name">{{details.name}}</h1>
                             <!-- <img class="headshot" src="../assets/headshot.jpg" width="190" height="auto"/> -->
                             <div class="infoContainer">
-                            <h2 class="title">{{details.title}}</h2>
+                            <!-- <h2 class="title">{{details.title}}</h2> -->
                             <div class="phrase">{{details.phrase}}</div>
                             </div>
-              </div>
-              <div key=2 v-else class="testimonialContainer">
-                  <li v-for="message in testimonal" :key="message.testimonal" class="testimonial">
-                  {{ message.message }}
-                  </li>
               </div>
             </transition>
 
@@ -36,7 +31,7 @@ export default {
       details: {
         name: "SOPHIE MENSAH",
         title: "Actor & Acting Teacher, London",
-        phrase: "\"You don’t need to go to drama school to be a professional actor but you do need to work hard on your craft every day.\""
+        phrase: "You don’t need to go to drama school to be a professional actor but you do need to work hard on your craft."
       },
       bio: "Sophie Mensah is a London based British actress and acting coach with a BA HONS in Acting from the East15 Acting School and and MA in 'Actor Training and Coaching' with a distinction from The Royal Central School of Speech and Drama. As well as private coaching with established and up and coming actors, Sophie has worked as an visiting acting teacher at The Royal Central School of Speech and Drama, St Mary's University, East15 Acting School and many more.",
       show: true,
@@ -61,7 +56,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
   .pageContainer {
-    position: fixed;
+    position: relative;
     width: 100vw;
     height: 100vh;
     /* background-image: url("../assets/studio.jpg"); */
@@ -81,7 +76,9 @@ export default {
     animation: fadebg infinite 20s, ease-in-out 0s;
     font-family: 'Montserrat', sans-serif;
     margin-left: 0em;
-    z-index: 15;
+    z-index: 1;
+                  -webkit-mask-image: -webkit-gradient(linear, left bottom, left top, 
+    from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
 
   }
   .testimonialContainer {
@@ -114,18 +111,26 @@ export default {
     /* clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%); */
   }
   .name {
-    font-size: 2em;
-    margin: 0 auto;
+    position: absolute;
+    font-size: 7em;
+    left: 0px;;
+    top: 5vh;
+    width: 100%;
     padding-bottom: 1em;
-    letter-spacing: 1em;
-    font-weight: 100;
+    letter-spacing: 0.4em;
+    font-weight: 800;
+    z-index: 30;
+    text-align: right;
   }
   .title {
+    position: absolute;
+    bottom: 0px;
     font-size: 0.8em; 
      margin: 0 auto;   
      padding-bottom: 0.1em;
      text-align: left;
      font-weight: 100;
+
   }
   .headshot {
     /* -webkit-box-shadow: 4px 10px 14px 0px rgba(0,0,0,0.75);
@@ -138,20 +143,23 @@ export default {
      /* filter: grayscale(); */
   }
   .phrase {
-
+    position: absolute;
     font-size: 1.5em;
     line-height: 1em;
-    text-align: center;
+    text-align: right;
     font-style: italic;
-    margin: 0 auto;
-    /* width: 50em; */
-    max-width: 35vw;
+    /* margin: 0 auto; */
+    width: 30vw;
+    bottom: 5vh;
+    right: 5vw;
     /* background-color: rgba(255, 255, 255, 0.521); */
     padding: 0.4em;
     /* clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%); */
     border-radius: 1em;
-    font-family: 'Montserrat', sans-serif;
-    
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    font-weight: 100;
+    z-index: 30;
   }
   .demo {
 
@@ -258,26 +266,22 @@ button:focus {outline:0;}
   padding: 1.1em;
 }
 
-  @keyframes  fadebg {
-      0% {
+@keyframes  fadebg {
+      0% { 
+          background-color:rgb(7, 108, 224);
           
-          background-color:rgb(204, 83, 2);
-          /* background-color: rgba(153, 0, 255, 0.822); */
       }
-      15% {
-          
-          background-color:rgb(204, 140, 2);
-          /* background-color: rgba(153, 0, 255, 0.822); */
+      35% {
+          background-color:rgb(255, 127, 68);
       }
-      30% {
-          background-color:rgba(39, 83, 30, 0.288);
+      55% {
+          background-color: rgb(9, 1, 43);
       }
-      80% {
-          background-color: rgb(0, 0, 0);
+      85% {
+          background-color: rgb(9, 1, 43);
       }
       100% {
-          /* background-color: rgba(209, 78, 2, 0.295); */
-          background-color:rgb(204, 83, 2);
+          background-color:rgb(7, 108, 224);
       }
   }
 </style>

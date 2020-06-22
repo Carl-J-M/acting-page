@@ -317,11 +317,13 @@ export default {
 
 <style>
 .svgContainer {
+    position: absolute;
     background-color: rgb(0, 0, 0);
-    /* top: 100vh; */
+    top: 0px;
+    left: 0px;
     width: 100vw;
     height: 100vh;
-    z-index: -10;
+    z-index:0;
     overflow: hidden;
     animation: fadebg infinite 20s, ease-in-out 0s;
 }
@@ -357,7 +359,7 @@ svg {
     position: fixed;
     right: 40vw;
     width: 80vw;
-    animation: rotate infinite 20s linear 3.2s;
+    animation: rotate infinite 40s linear 0s;
     /* animation-fill-mode: forwards; */
     transform-origin: 100% 100%;
     z-index: 0;
@@ -367,8 +369,8 @@ svg {
     position: fixed;
     right: 40vw;
     width: 150vw;
-    height: 100vw;
-    animation: rotate infinite 40s linear 2s;
+    height: 150vw;
+    animation: rotate infinite 20s linear 0s;
     /* animation-fill-mode: forwards; */
     transform-origin: 100% 100%;
     z-index: 0;
@@ -428,21 +430,23 @@ svg {
           transform: rotateZ(0deg);
           
       }
-     44%{
+      1% {
+          transform: rotateZ(-20deg);
+          opacity: 0
+      }
+      85% {
           opacity: 1;
       }
-      45%{
+      90% {
+          transform: rotateZ(70deg);
           opacity: 0;
       }
-      46%{
-          opacity: 1;
-      }
-
-      50% {
-          transform: rotateZ(180deg);
+      91% {
+          
       }
       100% {
           transform: rotateZ(360deg);
+          opacity: 0
       }
   }
 </style>
